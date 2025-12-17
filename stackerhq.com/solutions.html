@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore JNAANTRA's innovative solutions for custom SaaS, CRMs, and internal tools tailored to your business needs.">
+    <meta name="generator" content="Framer c2a8602">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JNAANTRA | Solutions - Transform Your Business">
+    <meta property="og:description" content="Explore JNAANTRA's innovative solutions for custom SaaS, CRMs, and internal tools tailored to your business needs.">
+    <meta property="og:image" content="https://framerusercontent.com/assets/f4ZAcfbcZOUFZjYIh2o5ZR3R6k.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JNAANTRA | Solutions - Transform Your Business">
+    <meta name="twitter:description" content="Explore JNAANTRA's innovative solutions for custom SaaS, CRMs, and internal tools tailored to your business needs.">
+    <meta name="twitter:image" content="https://framerusercontent.com/assets/f4ZAcfbcZOUFZjYIh2o5ZR3R6k.webp">
+    <title>JNAANTRA | Solutions - Transform Your Business</title>
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '24726959073603598');fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=24726959073603598&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NGM6QCLH');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- PostHog -->
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Fe Us zs Oe js Ns capture Ze calculateEventProperties Hs register register_once register_for_session unregister unregister_for_session Js getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Gs Bs createPersonProfile Vs As Ks opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing qs debug L Ws getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('phc_pZiCNB4KJQtDpXqy4GIanJhmXUWtq5zmFAMzprTImcN',{api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only',session_recording:{maskAllInputs:false}});
+    </script>
+    <!-- End PostHog -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        /* Navigation */
+        .navbar {
+            background-color: #fff;
+            border-radius: 26px;
+            box-shadow: 0 12px 38px rgba(0,0,0,0.11), 0 2px 5px rgba(0,0,0,0.06);
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px auto;
+            height: 60px;
+        }
+        .nav-logo img {
+            width: 60px; /* Reduced logo size to fit and look smaller */
+            height: auto;
+            max-height: 50px; /* Ensure it fits within the nav height */
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: #666;
+            font-family: 'Inter-Medium', 'Inter', sans-serif;
+            font-size: 16px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #000;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .nav-buttons a {
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-family: 'Inter-Medium', 'Inter', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .btn-secondary {
+            background-color: #f3f3f3;
+            color: #000;
+        }
+        .btn-primary {
+            background-color: #000;
+            color: #fff;
+        }
+        .our-team-dropdown {
+            position: relative;
+        }
+        .our-team-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 15px;
+            min-width: 180px;
+            z-index: 10;
+        }
+        .our-team-content.show {
+            display: block;
+        }
+        .our-team-content p {
+            margin: 5px 0;
+            color: #999;
+            font-family: 'Inter-Medium', 'Inter', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .our-team-content a {
+            display: block;
+            color: #000;
+            font-size: 14px;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-buttons {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                border-radius: 0 0 26px 26px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                padding: 15px;
+                display: none;
+            }
+            .mobile-menu.show {
+                display: block;
+            }
+            .mobile-menu .nav-links {
+                display: block;
+            }
+            .mobile-menu .nav-links a {
+                display: block;
+                margin: 8px 0;
+            }
+            .mobile-menu-icon {
+                display: block;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                gap: 12px;
+            }
+            .nav-buttons a {
+                padding: 6px 12px;
+            }
+        }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('../framerusercontent.com/images/bg2.jpg') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            animation: fadeInDown 1s ease-out;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        /* Solutions Section */
+        .solutions {
+            padding: 5rem 2rem;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        .solutions h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #000;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .solutions .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(300px, 1fr)); /* 3 columns for 6 cards */
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        /* Review Section */
+        .review-section {
+            padding: 5rem 2rem;
+            background: url('../framerusercontent.com/images/bg2.jpg') no-repeat center center/cover;
+            position: relative;
+            color: #fff;
+            text-align: center;
+        }
+        .review-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .review-section .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .review-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .review-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        footer h4 {
+            font-family: 'PP Mori', sans-serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        footer a, footer p {
+            color: #ccc;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 20px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .solutions h2 {
+                font-size: 2rem;
+            }
+            .solutions .cards {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+            }
+            .review-section h2 {
+                font-size: 2rem;
+            }
+            .review-section p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .solutions {
+                padding: 3rem 1rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .review-section {
+                padding: 3rem 1rem;
+            }
+        }
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGM6QCLH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="main" data-framer-hydrate-v2="{&quot;routeId&quot;:&quot;solutions&quot;,&quot;localeId&quot;:&quot;default&quot;,&quot;breakpoints&quot;:[{&quot;hash&quot;:&quot;1tf7y1d&quot;,&quot;mediaQuery&quot;:&quot;(min-width: 1440px)&quot;},{&quot;hash&quot;:&quot;1j3roy9&quot;,&quot;mediaQuery&quot;:&quot;(min-width: 1000px) and (max-width: 1439.98px)&quot;},{&quot;hash&quot;:&quot;se13aj&quot;,&quot;mediaQuery&quot;:&quot;(max-width: 999.98px)&quot;}]}">
+        <!-- Navbar -->
+        <!-- Nav Bar -->
+        <header class="header" style="background-color: #fff; border-radius: 26px; box-shadow: 0 24px 76px rgba(0, 0, 0, 0.11), 0 3px 9.52px rgba(0, 0, 0, 0.06); padding: 8px 10px; display: flex; justify-content: space-between; align-items: center; width: 95%; max-width: 1200px; margin: 10px auto; position: relative; opacity: 1;">
+            <a href="index.html" class="logo">
+              <img src="../framerusercontent.com/images/jj-removebg-preview.png" alt="JNAANTRA Logo" style="width: 60px;">
+            </a>
+            <nav class="nav-links" style="display: flex; gap: 10px;">
+                <a href="index.html" style="color: #666; font-size: 14px; font-weight: 500; text-decoration: none;">Home</a>
+              <a href="services.html" style="color: #666; font-size: 14px; font-weight: 500; text-decoration: none;">Services</a>
+              <a href="solutions.html" style="color: #666; font-size: 14px; font-weight: 500; text-decoration: none;">Solutions</a>
+              <a href="our-team.html" style="color: #666; font-size: 14px; font-weight: 500; text-decoration: none;">Our Team</a>
+              <a href="about.html" style="color: #666; font-size: 14px; font-weight: 500; text-decoration: none;">About Us</a>
+            </nav>
+            <div class="nav-buttons" style="display: flex; gap: 8px;">
+              <a href="../studio.JNAANTRAhq.com/login.html" style="padding: 8px 15px; border-radius: 40px; text-decoration: none; font-size: 12px; font-weight: 500; background-color: #f3f3f3; color: #000;">Contact US</a>
+              <a href="../get.JNAANTRAhq.com/index.html" style="padding: 8px 15px; border-radius: 40px; text-decoration: none; font-size: 12px; font-weight: 500; background-color: #000; color: #fff;">Explore</a>
+            </div>
+            <div class="menu-toggle" style="display: none; font-size: 14px; font-weight: 500; color: #666; cursor: pointer; text-transform: uppercase; padding: 8px; position: absolute; right: 10px;">Menu</div>
+            <div class="mobile-menu" style="display: none; position: absolute; top: 100%; right: 0; background-color: #fff; border-radius: 0 0 10px 10px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); padding: 15px; flex-direction: column; gap: 8px; min-width: 150px; z-index: 1000;">
+              <a href="services.html" style="color: #666; font-size: 16px; text-decoration: none; padding: 8px 0; border-bottom: 1px solid #f7f7f7; display: block; cursor: pointer;">Services</a>
+              <a href="solutions.html" style="color: #666; font-size: 16px; text-decoration: none; padding: 8px 0; border-bottom: 1px solid #f7f7f7; display: block; cursor: pointer;">Solutions</a>
+              <a href="our-team.html" style="color: #666; font-size: 16px; text-decoration: none; padding: 8px 0; border-bottom: 1px solid #f7f7f7; display: block; cursor: pointer;">Our Team</a>
+              <a href="about.html" style="color: #666; font-size: 14px; font-weight: 500; text-decoration: none;">About Us</a>
+            </div>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+              .header a:hover { color: #000; }
+              .mobile-menu a:hover { color: #000; background-color: #f7f7f7; }
+              @media (max-width: 768px) {
+                .header { width: 95%; padding: 8px; }
+                .logo img { width: 50px; }
+                .nav-links, .nav-buttons { display: none !important; }
+                .menu-toggle { display: block !important; }
+                .mobile-menu.active { display: flex !important; }
+              }
+            </style>
+            <script>
+              try {
+                document.querySelector('.menu-toggle').addEventListener('click', () => {
+                  document.querySelector('.mobile-menu').classList.toggle('active');
+                });
+              } catch (error) {
+                console.error('Menu toggle error:', error);
+              }
+            </script>
+          </header>
+          <!-- Nav Bar -->
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Solutions</h1>
+                <p>Innovative tools to transform your business with cutting-edge technology.</p>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="solutions">
+            <h2>Explore Our Solutions</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Customer Portal</h3>
+                    <p>A seamless platform for managing customer interactions and support.</p>
+                </div>
+                <div class="card">
+                    <h3>Work Management</h3>
+                    <p>Streamline workflows with our internal task management system.</p>
+                </div>
+                <div class="card">
+                    <h3>Flexible CRM</h3>
+                    <p>Customizable CRM tailored to your business needs.</p>
+                </div>
+                <div class="card">
+                    <h3>Process Tracker</h3>
+                    <p>Monitor and optimize your team’s processes in real-time.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Analytics</h3>
+                    <p>Advanced analytics to drive data-informed decisions.</p>
+                </div>
+                <div class="card">
+                    <h3>Automation Suite</h3>
+                    <p>Comprehensive automation for enhanced efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Section -->
+        <section class="review-section">
+            <div class="content">
+                <h2>Customer Reviews</h2>
+                <p>JNAANTRA has transformed our business operations with their innovative solutions. The customer portal and workflow tools have saved us countless hours, and their support team is exceptional. Highly recommend their services!</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>JNAANTRA</h4>
+                    <p>Empowering businesses with custom SaaS solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="our-team.html">Our Team</a>
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@jnaantra.com</p>
+                    <p>Phone: +1-800-JNAANTRA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://twitter.com/jnaantra">Twitter</a>
+                        <a href="https://linkedin.com/company/jnaantra">LinkedIn</a>
+                        <a href="https://facebook.com/jnaantra">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Query Params Persistence Script -->
+        <script>
+        (function () {
+          const STORAGE_KEY = "JNAANTRA_query_params";
+          const TARGET_HOSTS = new Set(["go.jnaantra.com", "playground.ai.jnaantra.com"]);
+
+          function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const obj = {};
+            for (const [key, value] of params.entries()) obj[key] = value;
+            return obj;
+          }
+
+          const currentParams = getQueryParams();
+          if (Object.keys(currentParams).length > 0) {
+            console.log("Capturing Query Params ✅");
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(currentParams));
+          }
+
+          const savedParams = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+
+          function isTargetHost(u) {
+            try {
+              return TARGET_HOSTS.has(new URL(u, location.href).host);
+            } catch {
+              return false;
+            }
+          }
+
+          function restoreParams() {
+            if (Object.keys(savedParams).length === 0) return;
+
+            document.querySelectorAll("a[href]").forEach((link) => {
+              const href = link.getAttribute("href");
+              if (!isTargetHost(href)) return;
+
+              try {
+                const url = new URL(href, location.href);
+                const merged = new URLSearchParams(url.search);
+                for (const [key, value] of Object.entries(savedParams)) {
+                  if (!merged.has(key)) merged.set(key, value);
+                }
+                const mergedStr = merged.toString();
+                if (url.search !== (mergedStr ? `?${mergedStr}` : "")) {
+                  const updated = `${url.origin}${url.pathname}${mergedStr ? `?${mergedStr}` : ""}${url.hash}`;
+                  if (link.href !== updated) {
+                    console.log("Updating link:", link.href, "→", updated);
+                    link.href = updated;
+                  }
+                }
+              } catch (e) {
+                console.warn("Invalid URL in link:", href);
+              }
+            });
+          }
+
+          function runRestoreLoop() {
+            if (Object.keys(savedParams).length === 0) return;
+            let attempts = 0;
+            const interval = setInterval(() => {
+              restoreParams();
+              attempts++;
+              if (attempts >= 50) {
+                clearInterval(interval);
+                console.log("Stopped restoring after 5s ⏹️");
+              }
+            }, 100);
+          }
+
+          const origPushState = history.pushState;
+          history.pushState = function () {
+            origPushState.apply(this, arguments);
+            runRestoreLoop();
+          };
+
+          const origReplaceState = history.replaceState;
+          history.replaceState = function () {
+            origReplaceState.apply(this, arguments);
+            runRestoreLoop();
+          };
+
+          window.addEventListener("popstate", runRestoreLoop);
+          runRestoreLoop();
+        })();
+        </script>
+
+        <!-- Prompt Capture Script -->
+        <script>
+        (function () {
+          const TARGET_HOSTS = new Set(["go.jnaantra.com", "playground.ai.jnaantra.com"]);
+
+          function isTargetHost(u) {
+            try {
+              return TARGET_HOSTS.has(new URL(u, location.href).host);
+            } catch {
+              return false;
+            }
+          }
+
+          document.addEventListener("click", function (e) {
+            const anchor = e.target.closest("a[href]");
+            if (!anchor) return;
+
+            const href = anchor.getAttribute("href");
+            if (!isTargetHost(href)) return;
+
+            const textarea = document.querySelector("textarea[name='prompt']");
+            if (!textarea) return;
+
+            const inputValue = textarea.value || "";
+            if (!inputValue) return;
+
+            try {
+              const url = new URL(href, location.href);
+              url.searchParams.set("prompt", inputValue);
+              anchor.href = url.toString();
+            } catch (err) {
+              console.warn("Failed to set prompt on URL:", href);
+            }
+          });
+        })();
+        </script>
+
+        <!-- Mobile Menu Toggle Script -->
+        <script>
+        document.querySelector('.mobile-menu-icon').addEventListener('click', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('show');
+        });
+
+        document.querySelector('.dropdown-toggle').addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdownContent = document.querySelector('.our-team-content');
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Scroll-triggered animations
+        window.addEventListener('scroll', () => {
+            const solutionsTitle = document.querySelector('.solutions h2');
+            const rect = solutionsTitle.getBoundingClientRect();
+            if (rect.top >= 0 && rect.top <= window.innerHeight) {
+                solutionsTitle.style.opacity = '1';
+                solutionsTitle.style.transform = 'translateY(0)';
+            }
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        </script>
+    </div>
+</body>
+</html>

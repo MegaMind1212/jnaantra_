@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JNAANTRA – Premium SaaS Platform</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@600;700;800&family=Clash+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #5e6bff;
+      --accent: #c4b5fd;
+      --mint: #a7f3d0;
+      --bg: #faf8ff;
+      --text: #1a1a2e;
+      --text-muted: #64748b;
+      --gradient: linear-gradient(135deg, #5e6bff 0%, #8b5cf6 50%, #a7f3d0 100%);
+      --gradient-soft: linear-gradient(135deg, rgba(94, 107, 255, 0.1) 0%, rgba(139, 92, 246, 0.08) 100%);
+      --glow: 0 0 40px rgba(94, 107, 255, 0.3);
+      --transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --card-glow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* TYPOGRAPHY */
+    h1, h2, .section-title {
+      font-family: 'Clash Display', 'Unbounded', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .hero h1 {
+      font-size: clamp(3.5rem, 10vw, 6.5rem);
+      line-height: 0.95;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      text-align: center;
+      margin: 5rem 0 3rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* NAVBAR */
+    .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 5% 5%;  /* ← Push content down (navbar height + margin) */
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -140px;           /* ← Extend BG up behind navbar */
+    left: 0; right: 0; bottom: 0;
+    background: var(--gradient-soft), 
+                url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop') 
+                center/cover no-repeat;
+    filter: blur(1px);
+    z-index: -2;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(transparent, var(--bg));
+    z-index: -1;
+}
+    .hero-content {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: center;
+      z-index: 2;
+    }
+    .hero-text p {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .cta-btn {
+      padding: 1rem 2.4rem;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .cta-btn::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--gradient);
+      opacity: 0; transition: var(--transition);
+      z-index: -1;
+    }
+    .cta-btn:hover::before { opacity: 1; }
+    .cta-btn:hover { transform: translateY(-4px); box-shadow: var(--glow); }
+
+    .hero-visual {
+      height: 600px;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+      transform: perspective(1400px) rotateY(-8deg);
+      transition: var(--transition);
+    }
+    .hero-visual:hover {
+      transform: perspective(1400px) rotateY(0) scale(1.04);
+    }
+    .hero-visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: var(--transition);
+    }
+    .hero-visual:hover img { transform: scale(1.08); }
+
+    /* CURVED DIVIDER */
+    .section-divider {
+      height: 120px;
+      background: var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 0; right: 0;
+      height: 120px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 -20px 40px rgba(0,0,0,0.05);
+    }
+
+    .section-divider2 {
+      height: 120px;
+      background: var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .section-divider2::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 0; right: 0;
+      height: 120px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 -20px 40px black;
+    }
+
+    /* WHY US – 4 CARDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 0 5%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 32px;
+      padding: 2.5rem;
+      transition: var(--transition);
+      overflow: hidden;
+      position: relative;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: var(--gradient);
+      border-radius: 34px;
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+    }
+    .card:hover::before { opacity: 0.15; }
+    .card:hover {
+      transform: translateY(-20px) scale(1.03);
+      box-shadow: var(--glow), 0 30px 60px rgba(94,107,255,0.2);
+    }
+    .card-icon {
+      width: 70px; height: 70px;
+      background: var(--gradient);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.8rem;
+      font-size: 2.2rem; color: #fff;
+      box-shadow: 0 10px 30px rgba(94,107,255,0.4);
+      transition: var(--transition);
+    }
+    .card:hover .card-icon {
+      transform: scale(1.2) rotate(12deg);
+    }
+
+    /* TEAM SECTION – WITH FLOATING LABEL */
+    .team-section {
+      padding: 10rem 5% 8rem;
+      background: #ffffff;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 4rem auto 0;
+    }
+
+    .flip-card {
+      width: 100%;
+      height: 380px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    .flip-card-front {
+      background: #f8f9ff;
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* FLOATING NAME + POSITION LABEL */
+    .floating-label {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      padding: 10px 16px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #000;
+      z-index: 5;
+    }
+    .floating-label .position {
+      font-weight: 400;
+      color: #555;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .flip-card-back {
+      background: #ffffff;
+      transform: rotateY(180deg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+    .punch-hole {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    .punch-hole img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .flip-card-back h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .flip-card-back p.position {
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+    .flip-card-back p.bio {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* PRACTICAL READS SECTION */
+    .reads-section {
+      padding: 10rem 5%;
+      background: #f8f9ff;
+    }
+    .reads-title {
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      text-align: center;
+      margin-bottom: 5rem;
+      font-weight: 700;
+      color: #000;
+    }
+    .reads-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .main-read {
+      grid-column: 1 / -1;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+    .main-read:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+    }
+    .main-read-img {
+      width: 45%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .main-read-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+    .main-read-content {
+      padding: 3rem;
+      flex: 1;
+    }
+    .tag {
+      display: inline-block;
+      background: #e0e7ff;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .main-read-content h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #000;
+      text-shadow: var(--card-glow);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 4px 0;
+      display: inline-block;
+    }
+    .main-read-content p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    .read-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .small-reads {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .small-read {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+      transition: var(--transition);
+    }
+    .small-read:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.14);
+    }
+    .small-read-img {
+      height: 180px;
+      overflow: hidden;
+    }
+    .small-read-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .small-read-content {
+      padding: 1.8rem;
+    }
+    .small-read-content .tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+    }
+    .small-read-content h4 {
+      font-size: 1.3rem;
+      margin: 0.8rem 0;
+      color: #000;
+      text-shadow: var(--card-glow);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 2px 0;
+      display: inline-block;
+    }
+    .small-read-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Navbar */
+    /* Navbar - Transparent & On Top */
+    .header {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 1200px;
+    margin: 15px auto;
+    position: fixed;   /* ← ONLY CHANGE */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+      .logo img { width: 60px; }
+      .nav-links a { color: #666; font-size: 14px; font-weight: 500; text-decoration: none; margin: 0 8px; }
+      .nav-links a:hover { color: var(--purple); }
+      .nav-buttons a {
+        padding: 8px 16px; border-radius: 40px; font-size: 12px; font-weight: 500; text-decoration: none;
+      }
+      .btn-secondary { background: #f1f5f9; color: #000; }
+      .btn-primary { background: #000; color: #fff; }
+      .menu-toggle { display: none; font-size: 14px; color: #666; cursor: pointer; }
+      .mobile-menu { display: none; position: absolute; top: 100%; right: 0; background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); padding: 15px; min-width: 160px; z-index: 1000; }
+      .mobile-menu.active { display: block; }
+      .mobile-menu a { display: block; padding: 10px 0; color: #666; font-size: 15px; border-bottom: 1px solid #f0f0f0; }
+      .mobile-menu a:hover { color: var(--purple); background: #f8f9fa; }
+
+      @media (max-width: 768px) {
+        .nav-links, .nav-buttons { display: none; }
+        .menu-toggle { display: block; }
+      }
+
+    /* FOOTER */
+    /* Footer */
+    footer {
+        background: #0f172a; color: #cbd5e1; padding: 60px 20px 40px;
+      }
+      .footer-content {
+        max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;
+      }
+      .footer-section h4 { font-family: 'PP Mori', sans-serif; font-size: 18px; margin-bottom: 20px; color: #fff; }
+      .footer-section a, .footer-section p { color: #94a3b8; font-size: 14px; text-decoration: none; margin: 8px 0; display: block; }
+      .footer-section a:hover { color: var(--green); }
+
+      @media (max-width: 768px) {
+        .solutions-header { padding: 160px 20px; }
+        .solutions-header h1 { font-size: 38px; }
+        .footer-content { flex-direction: column; text-align: center; }
+      }
+
+    /* SCROLL INDICATOR */
+    .scroll-indicator {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 6px;
+      background: rgba(94,107,255,0.2);
+      z-index: 1001;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    .scroll-indicator.active { background: var(--gradient); }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator" id="scrollIndicator"></div>
+
+<!-- NAVBAR -->
+<header class="header">
+  <a href="landing.html" class="logo">
+    <img src="../framerusercontent.com/images/jj-removebg-preview.png" alt="JNAANTRA Logo">
+  </a>
+  <nav class="nav-links">
+    <a href="landing.html">Home</a>
+    <a href="our-offerings.html">Our Services</a>
+    <a href="our-team.html">Our Team</a>
+    <!--<a href="index.html">About Us</a>-->
+  </nav>
+  <div class="nav-buttons">
+    <a href="mailto:hr@jnaantra.com?subject=Inquiry%20from%20JNAANTRA&body=Hi%20there,%0A%0AI%20would%20like%20to%20know%20more..." 
+   style="padding: 8px 15px; border-radius: 40px; text-decoration: none; font-size: 12px; font-weight: 500; background-color: #f3f3f3; color: #000;">
+   Contact Us
+</a>
+    <a href="our-offerings.html" class="btn-primary">Explore</a>
+  </div>
+  <div class="menu-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">Menu</div>
+  <div class="mobile-menu">
+    <a href="our-offerings.html">Our Services</a>
+    <a href="our-team.html">Our Team</a>
+    <!--<a href="index.html">About Us</a>-->
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Build<br><span>Smarter</span><br>Platforms</h1>
+      <p>SaaS that scales with your vision. Secure, fast, and beautiful by design.</p>
+      <a href="our-offerings.html" class="cta-btn">Get Started</a>
+    </div>
+    <div class="hero-visual">
+      <img src="../framerusercontent.com/images/bgg.png" alt="Dashboard">
+    </div>
+  </div>
+</section>
+
+  <!-- CURVED DIVIDER -->
+  <div class="section-divider"></div>
+
+  <!-- WHY US – 4 CARDS -->
+  <section class="about-grid">
+    <h2 class="section-title">Why Customers Trust Us</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Fast & Intuitive</h3>
+        <p>Clean UI and optimized performance for instant productivity.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-lock"></i></div>
+        <h3>Top-Tier Security</h3>
+        <p>End-to-end encryption and compliance with industry standards.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Scales With You</h3>
+        <p>From small teams to large enterprises without extra effort.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-headset"></i></div>
+        <h3>Dedicated Support</h3>
+        <p>Expert help whenever you need it, from setup to growth.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3>Regular Updates</h3>
+        <p>New features and improvements delivered automatically.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-plug"></i></div>
+        <h3>Easy Integrations</h3>
+        <p>Connect seamlessly with your favorite tools and apps.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider2"></div>
+
+  <!-- TEAM SECTION --
+  <section class="team-section">
+    <h2 class="section-title">Meet the Visionaries</h2>
+    <div class="team-grid">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+            <div class="floating-label">
+              Sarah Chen
+              <div class="position">CEO & Founder</div>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="punch-hole">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+            </div>
+            <h3>Sarah Chen</h3>
+            <p class="position">CEO & Founder</p>
+            <p class="bio">10+ years building scalable SaaS. Passionate about AI and user-centric design. Previously at Google Cloud.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Park">
+            <div class="floating-label">
+              Michael Park
+              <div class="position">CTO</div>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="punch-hole">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Park">
+            </div>
+            <h3>Michael Park</h3>
+            <p class="position">CTO</p>
+            <p class="bio">Ex-AWS architect. Built systems handling 10M+ RPS. Obsessed with performance and reliability.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Elena Rodriguez">
+            <div class="floating-label">
+              Elena Rodriguez
+              <div class="position">Head of Design</div>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="punch-hole">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Elena Rodriguez">
+            </div>
+            <h3>Elena Rodriguez</h3>
+            <p class="position">Head of Design</p>
+            <p class="bio">Award-winning UI/UX. Led design at Figma. Believes great software feels invisible.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Kim">
+            <div class="floating-label">
+              David Kim
+              <div class="position">Lead Engineer</div>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="punch-hole">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Kim">
+            </div>
+            <h3>David Kim</h3>
+            <p class="position">Lead Engineer</p>
+            <p class="bio">Full-stack wizard. Built 50+ microservices. Loves Go, React, and clean code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .timeline {
+      padding: 120px 20px 100px;
+      background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Timeline Line */
+    .timeline::after {
+  content: ''; 
+  position: absolute; 
+  top: 0; left: 50%; 
+  width: 2px; 
+  height: 100%;
+  background: linear-gradient(to bottom, #6d28d9, #10b981); 
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+  /* Smooth fade-out at bottom */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to top, #ffffff, transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+    .timeline-item {
+      width: 45%; margin-bottom: 60px; position: relative; background: #fff;
+      border-radius: 20px; padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s ease; z-index: 1; cursor: pointer;
+      border: 1px solid #e2e8f0;
+    }
+    .timeline-item:nth-child(even) { margin-left: 55%; }
+    .timeline-item:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 25px 50px rgba(109, 40, 217, 0.2);
+      border-color: #6d28d9;
+    }
+    .timeline-item h3 {
+      font-family: 'PP Mori', sans-serif; font-size: 24px; color: #6d28d9; margin-bottom: 12px;
+    }
+    .timeline-item p { font-size: 16px; color: #64748b; }
+  
+    .timeline-item::before {
+      content: ''; position: absolute; top: 30px; width: 24px; height: 24px;
+      background: #6d28d9; border-radius: 50%; z-index: 2;
+      left: -12px; box-shadow: 0 0 0 6px rgba(109,40,217,0.2);
+    }
+    .timeline-item:nth-child(even)::before { left: auto; right: -12px; }
+  
+    .timeline-item .pop-image {
+      position: absolute; top: 50%; left: 50%; width: 120px; height: 120px;
+      background: #fff; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transform: translate(-50%, -50%) scale(0); opacity: 0;
+      transition: all 0.4s ease; z-index: 10; pointer-events: none;
+      display: flex; align-items: center; justify-content: center; font-size: 48px;
+    }
+    .timeline-item:hover .pop-image {
+      transform: translate(-50%, -50%) scale(1); opacity: 1;
+    }
+  
+    @media (max-width: 992px) {
+      .timeline-item { width: 80%; margin-left: 10% !important; }
+      .timeline-item:nth-child(even) { margin-left: 10% !important; }
+    }
+    @media (max-width: 600px) {
+      .timeline-item { width: 90%; margin-left: 5% !important; }
+    }
+  </style>
+  
+  <section class="timeline">
+    <div class="timeline-item">
+      <h3>2019 - Founded</h3>
+      <p>JNAANTRA was born with a vision to revolutionize SaaS development.</p>
+      <div class="pop-image">🚀</div>
+    </div>
+    <div class="timeline-item">
+      <h3>2021 - First Client</h3>
+      <p>Successfully delivered our first custom CRM solution to a global client.</p>
+      <div class="pop-image">💼</div>
+    </div>
+    <div class="timeline-item">
+      <h3>2023 - Expansion</h3>
+      <p>Expanded our team and services to include advanced automation tools.</p>
+      <div class="pop-image">📈</div>
+    </div>
+    <div class="timeline-item">
+      <h3>2025 - Innovation Hub</h3>
+      <p>Launched our innovation hub, driving cutting-edge technology solutions.</p>
+      <div class="pop-image">💡</div>
+    </div>
+  </section>
+
+  <!--MISSION-->
+  <style>
+    /* Smooth fade edges for seamless integration */
+    .mission {
+      padding: 120px 20px 100px;
+      background: linear-gradient(135deg, #f0e7ff, #e6f7f0);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    /* Top fade-in */
+    .mission::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+      z-index: 1;
+      pointer-events: none;
+    }
+  
+    /* Bottom fade-out */
+    .mission::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+      z-index: 1;
+      pointer-events: none;
+    }
+  
+    .mission h2 {
+      font-family: 'PP Mori', sans-serif; font-size: 42px; color: #6d28d9; margin-bottom: 16px;
+      position: relative; z-index: 2;
+    }
+    .mission p {
+      font-size: 18px; color: #64748b; max-width: 800px; margin: 0 auto 32px;
+      line-height: 1.7; position: relative; z-index: 2;
+    }
+  
+    /* CTA Button - Now at the top */
+    .mission-cta {
+      margin-bottom: 40px; position: relative; z-index: 2;
+    }
+    .cta-button {
+      display: inline-block; padding: 16px 40px;
+      background: linear-gradient(135deg, #6d28d9, #10b981);
+      color: #fff; font-weight: 600; font-size: 18px; border-radius: 50px;
+      text-decoration: none; box-shadow: 0 10px 25px rgba(109,40,217,0.3);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      transform: translateY(-5px); box-shadow: 0 15px 30px rgba(109,40,217,0.4);
+    }
+  
+    .mission-values {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px; max-width: 1200px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .value-card {
+      background: #fff; border-radius: 20px; padding: 32px 24px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.4s ease;
+      border: 1px solid #e2e8f0;
+    }
+    .value-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(16,185,129,0.15);
+      border-color: #10b981;
+    }
+    .value-card h3 {
+      font-size: 22px; color: #6d28d9; margin-bottom: 12px;
+    }
+    .value-card p { font-size: 16px; color: #64748b; }
+  
+    @media (max-width: 600px) {
+      .mission h2 { font-size: 32px; }
+      .mission p { font-size: 16px; }
+      .cta-button { font-size: 16px; padding: 14px 32px; }
+    }
+  </style>
+  
+  <section class="mission">
+    <!-- CTA Button at Top -->
+    <div class="mission-cta">
+      <a href="our-offerings.html" class="cta-button">Explore Our Services</a>
+    </div>
+  
+    <h2>Our Mission & Values</h2>
+    <p>At JNAANTRA, we are committed to delivering innovation, collaboration , and customer-centric solutions. Our journey is fueled by a passion for technology and a dedication to transforming businesses worldwide.</p>
+    
+    <div class="mission-values">
+      <div class="value-card">
+        <h3>Collaboration</h3>
+        <p>Working together to achieve shared success with our clients.</p>
+      </div>
+      <div class="value-card">
+        <h3>Innovation</h3>
+        <p>Pushing boundaries with creative and forward-thinking solutions.</p>
+      </div>
+      <div class="value-card">
+        <h3>Integrity</h3>
+        <p>Building trust through transparency and ethical practices.</p>
+      </div>
+      
+    </div>
+  </section>
+  <!--MISSION-->
+
+  <!-- PRACTICAL READS SECTION --
+  <section class="reads-section">
+    <h2 class="reads-title">JNAANTRA helps<br>you move <span style="background: linear-gradient(90deg,#5e6bff,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">faster.</span></h2>
+    
+    <div class="reads-grid">
+      <!-- Main Read --
+      <div class="main-read">
+        <div class="main-read-img">
+          <img src="../framerusercontent.com/images/pagebg.png" alt="Design Strategy">
+        </div>
+        <div class="main-read-content">
+          <span class="tag">Strategy</span>
+          <h3>Why Most Startups Keep Getting Design Wrong</h3>
+          <p>Many teams move fast on product but fail behind on design. This post breaks down why that happens, how it holds you back, and what to do instead if you want to stay clear and competitive.</p>
+          <div class="read-meta">
+            <span>by CEO</span>
+            <span>·</span>
+            <span>JNAANTRA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small Reads --
+      
+  </section>
+
+  <!-- Small Reads -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>JNAANTRA</h4>
+            <p>Enhancing Human Intelligence by Leveraging Transformative Technologies.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Links</h4>
+            <a href="landing.html">Home</a>
+            <a href="our-offerings.html">Our Services</a>
+            <a href="our-team.html">Our Team</a>
+            <!--<a href="index.html">About Us</a>-->
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: hr@jnaantra.com</p>
+            <p>Phone: +91 9271112061 </p>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="https://twitter.com/jnaantra">Twitter</a>
+                <a href="https://linkedin.com/company/jnaantra">LinkedIn</a>
+                <a href="https://facebook.com/jnaantra">Facebook</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script>
+    // Scroll Indicator
+    window.addEventListener('scroll', () => {
+      const ind = document.getElementById('scrollIndicator');
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      ind.style.transform = `scaleX(${pct / 100})`;
+      ind.classList.toggle('active', pct > 0);
+    });
+
+    // Load Fade
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.8s ease';
+      setTimeout(() => document.body.style.opacity = '1', 100);
+    });
+  </script>
+</body>
+</html>

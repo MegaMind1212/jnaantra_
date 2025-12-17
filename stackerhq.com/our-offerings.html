@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore JNAANTRA's custom SaaS solutions, CRMs, customer portals, internal tools, and workflow automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JNAANTRA | Our Offerings">
+    <meta property="og:description" content="Explore JNAANTRA's custom SaaS solutions, CRMs, customer portals, internal tools, and workflow automation.">
+    <meta property="og:image" content="https://framerusercontent.com/assets/f4ZAcfbcZOUFZjYIh2o5ZR3R6k.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JNAANTRA | Our Offerings">
+    <meta name="twitter:description" content="Explore JNAANTRA's custom SaaS solutions, CRMs, customer portals, internal tools, and workflow automation.">
+    <meta name="twitter:image" content="https://framerusercontent.com/assets/f4ZAcfbcZOUFZjYIh2o5ZR3R6k.webp">
+    <title>JNAANTRA | Our Services</title>
+
+    <!-- Analytics -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '24726959073603598');fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=24726959073603598&ev=PageView&noscript=1"/></noscript>
+
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NGM6QCLH');
+    </script>
+
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Fe Us zs Oe js Ns capture Ze calculateEventProperties Hs register register_once register_for_session unregister unregister_for_session Js getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Gs Bs createPersonProfile Vs As Ks opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing qs debug L Ws getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('phc_pZiCNB4KJQtDpXqy4GIanJhmXUWtq5zmFAMzprTImcN',{api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only',session_recording:{maskAllInputs:false}});
+    </script>
+
+    <style>
+      :root {
+        --purple: #6d28d9;
+        --green: #10b981;
+        --light: #f8fafc;
+        --gray: #e2e8f0;
+        --text: #1e293b;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+      body { background: var(--light); color: var(--text); line-height: 1.6; }
+
+      /* Scroll Progress Bar */
+      #progress-container {
+        position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(0,0,0,0.1); z-index: 9999;
+      }
+      #progress-bar {
+        height: 100%; width: 0; background: linear-gradient(90deg, var(--purple), var(--green)); transition: width 0.1s ease;
+      }
+
+      /* Navbar */
+      .header {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 1200px;
+    margin: 15px auto;
+    position: fixed;   /* ← ONLY CHANGE */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+      .logo img { width: 60px; }
+      .nav-links a { color: #666; font-size: 14px; font-weight: 500; text-decoration: none; margin: 0 8px; }
+      .nav-links a:hover { color: var(--purple); }
+      .nav-buttons a {
+        padding: 8px 16px; border-radius: 40px; font-size: 12px; font-weight: 500; text-decoration: none;
+      }
+      .btn-secondary { background: #f1f5f9; color: #000; }
+      .btn-primary { background: #000; color: #fff; }
+      .menu-toggle { display: none; font-size: 14px; color: #666; cursor: pointer; }
+      .mobile-menu { display: none; position: absolute; top: 100%; right: 0; background: #fff; border-radius: 0 0 12px 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); padding: 15px; min-width: 160px; z-index: 1000; }
+      .mobile-menu.active { display: block; }
+      .mobile-menu a { display: block; padding: 10px 0; color: #666; font-size: 15px; border-bottom: 1px solid #f0f0f0; }
+      .mobile-menu a:hover { color: var(--purple); background: #f8f9fa; }
+
+      @media (max-width: 768px) {
+        .nav-links, .nav-buttons { display: none; }
+        .menu-toggle { display: block; }
+      }
+
+      /* Wave Divider */
+      .wave-divider svg {
+        display: block; width: 100%; height: 80px;
+      }
+
+      /* Services Grid - 3x2 Layout */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 100px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+      }
+      @media (max-width: 992px) {
+        .services-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 600px) {
+        .services-grid { grid-template-columns: 1fr; }
+      }
+
+      .service-card {
+        background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px 24px;
+        text-align: center; transition: all 0.4s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      .service-card:hover {
+        transform: translateY(-12px) scale(1.02); box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15);
+        border-color: var(--purple);
+      }
+      .service-icon {
+        width: 72px; height: 72px; background: linear-gradient(135deg, #f0e7ff, #e6f7f0);
+        border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;
+        font-size: 30px; color: var(--purple);
+      }
+      .service-card h3 {
+        font-family: 'PP Mori', sans-serif; font-size: 22px; margin: 16px 0 12px; color: #1e293b;
+      }
+      .service-card p { font-size: 15px; color: #64748b; }
+
+      /* Solutions Header - Taller */
+      .solutions-header {
+        background: url('../framerusercontent.com/images/pagebg.png') no-repeat center center/cover;
+        padding: 240px 20px; /* Increased height */
+        text-align: center; position: relative; color: #fff;
+      }
+      .solutions-header::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(109,40,217,0.8), rgba(16,185,129,0.7)); z-index: 1;
+      }
+      .solutions-header h1, .solutions-header p { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+      .solutions-header h1 {
+        font-family: 'PP Mori', sans-serif; font-size: 52px; font-weight: 700; margin-bottom: 20px;
+      }
+      .solutions-header p { font-size: 19px; }
+      .services-hero {
+        background-color: #fff;
+        padding: 40px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .services-hero h1 {
+        font-family: 'PP Mori', sans-serif;
+        font-size: 60px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 2;
+      }
+      .services-hero p {
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        color: #444;
+        
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-backdrop {
+        position: absolute;
+        
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 140%;
+        
+        background: url('../framerusercontent.com/images/pagebg.png') no-repeat center/cover;
+        opacity: 0.5;
+        z-index: 1;
+      }
+      
+
+      .section-divider2 {
+      height: 120px;
+      background: var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .section-divider2::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 0; right: 0;
+      height: 120px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 -20px 40px black;
+    }
+
+      /* Solutions Cards - 3x2 */
+      .solutions-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 100px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #f8fafc;
+      }
+      @media (max-width: 992px) {
+        .solutions-cards { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 600px) {
+        .solutions-cards { grid-template-columns: 1fr; }
+      }
+
+      .solution-card {
+        background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px 24px;
+        text-align: center; transition: all 0.4s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      .solution-card:hover {
+        transform: translateY(-12px) scale(1.02); box-shadow: 0 20px 40px rgba(16,185,129,0.15);
+        border-color: var(--green);
+      }
+      .solution-card h3 { font-size: 20px; margin: 16px 0 12px; color: #1e293b; }
+      .solution-card p { font-size: 15px; color: #64748b; }
+
+      /* Footer */
+      footer {
+        background: #0f172a; color: #cbd5e1; padding: 60px 20px 40px;
+      }
+      .footer-content {
+        max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;
+      }
+      .footer-section h4 { font-family: 'PP Mori', sans-serif; font-size: 18px; margin-bottom: 20px; color: #fff; }
+      .footer-section a, .footer-section p { color: #94a3b8; font-size: 14px; text-decoration: none; margin: 8px 0; display: block; }
+      .footer-section a:hover { color: var(--green); }
+
+      @media (max-width: 768px) {
+        .solutions-header { padding: 160px 20px; }
+        .solutions-header h1 { font-size: 38px; }
+        .footer-content { flex-direction: column; text-align: center; }
+      }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGM6QCLH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Scroll Progress -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div id="main">
+        <!-- Navbar -->
+        <header class="header">
+            <a href="landing.html" class="logo">
+                <img src="../framerusercontent.com/images/jj-removebg-preview.png" alt="JNAANTRA Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="landing.html">Home</a>
+                <a href="our-offerings.html">Our Services</a>
+                <a href="our-team.html">Our Team</a>
+                <!-- <a href="index.html">About Us</a> -->
+            </nav>
+            <div class="nav-buttons">
+                <a href="mailto:hr@jnaantra.com?subject=Inquiry%20from%20JNAANTRA&body=Hi%20there,%0A%0AI%20would%20like%20to%20know%20more..." 
+   style="padding: 8px 15px; border-radius: 40px; text-decoration: none; font-size: 12px; font-weight: 500; background-color: #f3f3f3; color: #000;">
+   Contact Us
+</a>
+                <a href="our-offerings.html" class="btn-primary">Explore</a>
+            </div>
+            <div class="menu-toggle">Menu</div>
+            <div class="mobile-menu">
+                <a href="our-offerings.html">Our Services</a>
+                <a href="our-team.html">Our Team</a>
+                <!-- <a href="about.html">About Us</a> -->
+            </div>
+        </header>
+
+        <!-- Services Hero Section -->
+        <section class="services-hero">
+            <div class="hero-backdrop"></div>
+            <h1 style="padding: 140px 5% 5%;">Our Services</h1>
+            <p style="padding: 5px 5% 5%;">At JNAANTRA, we specialize in crafting bespoke SaaS solutions designed to elevate your business. From robust CRMs to intuitive customer portals and efficient internal tools, we deliver innovation tailored to your goals.</p>
+        </section>
+
+        <!-- Services Grid (3x2) -->
+        <section class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Custom CRM Development</h3>
+                <p>Build scalable CRMs with seamless integrations, empowering your team to manage customer relationships with ease and precision.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Customer Portals</h3>
+                <p>Create secure, user-friendly portals that enhance customer engagement and provide a personalized experience.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Internal Tools</h3>
+                <p>Develop tailored tools to optimize workflows, reduce manual tasks, and boost productivity across your organization.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Workflow Automation</h3>
+                <p>Automate complex processes with custom workflows, saving time and ensuring consistency in your operations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Secure Data Sync</h3>
+                <p>Real-time, encrypted data synchronization across platforms to ensure consistency and compliance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <h3>Cloud Migration</h3>
+                <p>Seamlessly migrate your legacy systems to scalable, secure cloud infrastructure with zero downtime.</p>
+            </div>
+        </section>
+        
+
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path fill="#f8fafc" d="M0,0 C360,120 1080,0 1440,60 L1440,120 L0,120 Z"></path>
+            </svg>
+        </div>
+
+        <!-- Solutions Header (Taller) --
+        <section class="solutions-header">
+            <h1>Our Solutions</h1>
+            <p>Enhancing Human Intelligence by Leveraging Transformative Technologies.</p>
+        </section>
+        
+
+        <!-- Solutions Cards (3x2) --
+        <section class="solutions-cards">
+            <div class="solution-card">
+                <h3>Customer Portal</h3>
+                <p>A seamless platform for managing customer interactions and support.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Work Management</h3>
+                <p>Streamline workflows with our internal task management system.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Flexible CRM</h3>
+                <p>Customizable CRM tailored to your business needs.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Process Tracker</h3>
+                <p>Monitor and optimize your team’s processes in real-time.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Data Analytics</h3>
+                <p>Advanced analytics to drive data-informed decisions.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Automation Suite</h3>
+                <p>Comprehensive automation for enhanced efficiency.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>JNAANTRA</h4>
+                    <p>Enhancing Human Intelligence by Leveraging Transformative Technologies.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <a href="landing.html">Home</a>
+                    <a href="our-offerings.html">Our Services</a>
+                    <a href="our-team.html">Our Team</a>
+                    <!-- <a href="index.html">About Us</a> -->
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: hr@jnaantra.com</p>
+            <p>Phone: +91 9271112061 </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://twitter.com/jnaantra">Twitter</a>
+                        <a href="https://linkedin.com/company/jnaantra">LinkedIn</a>
+                        <a href="https://facebook.com/jnaantra">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile Menu
+      document.querySelector('.menu-toggle').addEventListener('click', () => {
+        document.querySelector('.mobile-menu').classList.toggle('active');
+      });
+
+      // Scroll Progress
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progress-bar').style.width = scrolled + '%';
+      });
+
+      // Query Params & Prompt Capture
+      (function () {
+        const STORAGE_KEY = "JNAANTRA_query_params";
+        const TARGET_HOSTS = new Set(["go.jnaantra.com", "playground.ai.jnaantra.com"]);
+        function getQueryParams() {
+          const params = new URLSearchParams(window.location.search);
+          const obj = {};
+          for (const [key, value] of params.entries()) obj[key] = value;
+          return obj;
+        }
+        const currentParams = getQueryParams();
+        if (Object.keys(currentParams).length > 0) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(currentParams));
+        }
+        const savedParams = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+        function isTargetHost(u) {
+          try { return TARGET_HOSTS.has(new URL(u, location.href).host); } catch { return false; }
+        }
+        function restoreParams() {
+          if (Object.keys(savedParams).length === 0) return;
+          document.querySelectorAll("a[href]").forEach((link) => {
+            const href = link.getAttribute("href");
+            if (!isTargetHost(href)) return;
+            try {
+              const url = new URL(href, location.href);
+              const merged = new URLSearchParams(url.search);
+              for (const [key, value] of Object.entries(savedParams)) {
+                if (!merged.has(key)) merged.set(key, value);
+              }
+              const mergedStr = merged.toString();
+              if (url.search !== (mergedStr ? `?${mergedStr}` : "")) {
+                link.href = `${url.origin}${url.pathname}${mergedStr ? `?${mergedStr}` : ""}${url.hash}`;
+              }
+            } catch (e) {}
+          });
+        }
+        function runRestoreLoop() {
+          if (Object.keys(savedParams).length === 0) return;
+          let attempts = 0;
+          const interval = setInterval(() => { restoreParams(); attempts++; if (attempts >= 50) clearInterval(interval); }, 100);
+        }
+        const origPushState = history.pushState;
+        history.pushState = function () { origPushState.apply(this, arguments); runRestoreLoop(); };
+        const origReplaceState = history.replaceState;
+        history.replaceState = function () { origReplaceState.apply(this, arguments); runRestoreLoop(); };
+        window.addEventListener("popstate", runRestoreLoop);
+        runRestoreLoop();
+      })();
+
+      (function () {
+        const TARGET_HOSTS = new Set(["go.jnaantra.com", "playground.ai.jnaantra.com"]);
+        function isTargetHost(u) {
+          try { return TARGET_HOSTS.has(new URL(u, location.href).host); } catch { return false; }
+        }
+        document.addEventListener("click", function (e) {
+          const anchor = e.target.closest("a[href]");
+          if (!anchor) return;
+          const href = anchor.getAttribute("href");
+          if (!isTargetHost(href)) return;
+          const textarea = document.querySelector("textarea[name='prompt']");
+          if (!textarea) return;
+          const inputValue = textarea.value || "";
+          if (!inputValue) return;
+          try {
+            const url = new URL(href, location.href);
+            url.searchParams.set("prompt", inputValue);
+            anchor.href = url.toString();
+          } catch (err) {}
+        });
+      })();
+    </script>
+</body>
+</html>

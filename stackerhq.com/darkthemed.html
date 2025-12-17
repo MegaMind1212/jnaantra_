@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JNAANTRA | AI-Powered Intelligence Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f0f1a;
+      color: #e0e0ff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* === SCROLL INDICATOR === */
+    #scrollIndicator {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6e56ff, #ff56d6);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    #scrollIndicator.active { transform: scaleX(1); }
+
+    /* === NAVBAR === */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 15, 26, 0.8);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      transition: 0.3s;
+    }
+    .navbar.scrolled { background: rgba(15, 15, 26, 0.95); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 0;
+      width: 0; height: 2px;
+      background: #6e56ff;
+      transition: 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: #6e56ff; }
+    .cta-btn {
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(110, 86, 255, 0.4);
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(110, 86, 255, 0.6);
+    }
+
+    /* === HERO === */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+      background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%236e56ff" opacity="0.1"/></svg>') repeat;
+      animation: float 20s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100px, -100px); }
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff, #6e56ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: #b0b0cc;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: 0.3s;
+      box-shadow: 0 6px 20px rgba(110, 86, 255, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(110, 86, 255, 0.6);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #6e56ff;
+      border: 2px solid #6e56ff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-secondary:hover {
+      background: #6e56ff;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* === FEATURES === */
+    .features {
+      padding: 8rem 5%;
+      background: #161625;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 4rem;
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: rgba(30, 30, 50, 0.5);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid rgba(110, 86, 255, 0.2);
+      transition: 0.4s;
+      backdrop-filter: blur(10px);
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      border-color: #6e56ff;
+      box-shadow: 0 20px 40px rgba(110, 86, 255, 0.2);
+    }
+    .feature-icon {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: white;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .feature-card p {
+      color: #b0b0cc;
+      font-size: 1rem;
+    }
+
+    /* === STATS === */
+    .stats {
+      padding: 6rem 5%;
+      background: #0f0f1a;
+      text-align: center;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .stat-item h3 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .stat-item p {
+      color: #b0b0cc;
+      font-weight: 500;
+    }
+
+    /* === TESTIMONIALS === */
+    .testimonials {
+      padding: 8rem 5%;
+      background: #161625;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: rgba(30, 30, 50, 0.6);
+      padding: 2rem;
+      border-radius: 16px;
+      border-left: 4px solid #6e56ff;
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #e0e0ff;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-img {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: #6e56ff;
+      object-fit: cover;
+    }
+    .author-info h4 {
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+    .author-info p {
+      color: #b0b0cc;
+      font-size: 0.9rem;
+    }
+
+    /* === CTA === */
+    .cta {
+      padding: 8rem 5%;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+    }
+    .cta h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff, #6e56ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .cta p {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: #b0b0cc;
+      font-size: 1.2rem;
+    }
+
+    /* === PRACTICAL READS === */
+    .reads-section {
+      padding: 8rem 5%;
+      background: #0f0f1a;
+    }
+    .reads-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #6e56ff, #ff56d6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .reads-subtitle {
+      text-align: center;
+      color: #b0b0cc;
+      margin-bottom: 4rem;
+      font-size: 1.1rem;
+    }
+    .reads-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1024px) {
+      .reads-grid { grid-template-columns: 1fr; }
+      .main-read { grid-column: 1 / -1; }
+    }
+    .main-read {
+      background: rgba(30, 30, 50, 0.6);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+      border: 1px solid rgba(110, 86, 255, 0.2);
+    }
+    .main-read:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(110, 86, 255, 0.2);
+    }
+    .main-read-img {
+      height: 250px;
+      overflow: hidden;
+    }
+    .main-read-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+    .main-read:hover .main-read-img img { transform: scale(1.05); }
+    .main-read-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .tag {
+      display: inline-block;
+      background: #6e56ff;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .main-read h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+    }
+    .main-read p {
+      color: #b0b0cc;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .read-meta {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #8888aa;
+    }
+
+    .small-read {
+      background: rgba(30, 30, 50, 0.5);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+      border: 1px solid rgba(110, 86, 255, 0.1);
+    }
+    .small-read:hover {
+      transform: translateY(-5px);
+      border-color: #6e56ff;
+    }
+    .small-read-img {
+      height: 140px;
+      overflow: hidden;
+    }
+    .small-read-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+    .small-read:hover .small-read-img img { transform: scale(1.08); }
+    .small-read-content {
+      padding: 1.2rem;
+      flex-grow: 1;
+    }
+    .small-read h4 {
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0.6rem;
+      color: #ffffff;
+    }
+    .small-read p {
+      font-size: 0.9rem;
+      color: #b0b0cc;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #0a0a12;
+      padding: 4rem 5% 2rem;
+      border-top: 1px solid rgba(110, 86, 255, 0.1);
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+    .footer-section h4 {
+      color: #6e56ff;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.8rem;
+    }
+    .footer-section ul li a {
+      color: #b0b0cc;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+    .footer-section ul li a:hover {
+      color: #6e56ff;
+      padding-left: 5px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(110, 86, 255, 0.1);
+      color: #8888aa;
+      font-size: 0.9rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.1rem; }
+      .section-title { font-size: 2.2rem; }
+      .nav-links { display: none; }
+      .navbar { padding: 1rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SCROLL INDICATOR -->
+  <div id="scrollIndicator"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">JNAANTRA</div>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#reads">Insights</a></li>
+      <li><a href="#cta">Get Started</a></li>
+    </ul>
+    <a href="#" class="cta-btn">Start Free Trial</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Intelligence, Amplified.</h1>
+    <p>JNAANTRA transforms raw data into strategic advantage using AI that thinks like your best analyst — 24/7, at scale.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Start Building Free</a>
+      <a href="#" class="btn-secondary">Watch Demo</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <h2 class="section-title">Why Teams Choose JNAANTRA</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Real-Time Intelligence</h3>
+        <p>Process millions of data points per second with sub-100ms latency. No more waiting for batch jobs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Enterprise Grade Security</h3>
+        <p>Zero-trust architecture, end-to-end encryption, SOC 2 Type II compliant. Your data stays yours.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-plug"></i></div>
+        <h3>Seamless Integration</h3>
+        <p>Connect to 200+ data sources in minutes. REST APIs, webhooks, and real-time streaming.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+        <h3>Adaptive AI Models</h3>
+        <p>Self-optimizing models that learn from your data patterns and improve accuracy over time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Predictive Analytics</h3>
+        <p>Forecast trends, detect anomalies, and get proactive alerts before issues impact your business.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-users"></i></div>
+        <h3>Collaboration First</h3>
+        <p>Real-time dashboards, shared insights, and automated reports for your entire team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>10M+</h3>
+        <p>Events Processed Daily</p>
+      </div>
+      <div class="stat-item">
+        <h3>99.99%</h3>
+        <p>Uptime SLA</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Enterprise Clients</p>
+      </div>
+      <div class="stat-item">
+        <h3>87%</h3>
+        <p>Faster Decision Making</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <h2 class="section-title">Trusted by Industry Leaders</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"JNAANTRA reduced our data processing time from 6 hours to 3 minutes. Game-changing."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" class="author-img">
+          <div class="author-info">
+            <h4>Sarah Chen</h4>
+            <p>CTO, FinTrust Bank</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The predictive insights helped us cut inventory costs by 34% in Q1."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus Johnson" class="author-img">
+          <div class="author-info">
+            <h4>Marcus Johnson</h4>
+            <p>VP Operations, Global Logistics</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Finally, an AI platform that doesn't require a PhD to use."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel" class="author-img">
+          <div class="author-info">
+            <h4>Priya Patel</h4>
+            <p>Head of Data, HealthTech Inc</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL READS -->
+  <section class="reads-section" id="reads">
+    <h2 class="reads-title">JNAANTRA</h2>
+    <p class="reads-subtitle">enhancing human intelligence by leveraging transformative technology</p>
+    
+    <div class="reads-grid">
+      <!-- Main Read -->
+      <div class="main-read">
+        <div class="main-read-img">
+          <img src="data:image/jpeg;base64,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#scrollIndicator" alt="AI Workflow">
+        </div>
+        <div class="main-read-content">
+          <span class="tag">STRATEGY</span>
+          <h3>Why Most Startups Fail at AI Integration</h3>
+          <p>Leveraging AI isn't about tools—it's about architecture. 94% of AI projects fail due to poor data pipelines and misaligned incentives. Here's the framework that actually works.</p>
+          <div class="read-meta">
+            <span>12 min read</span>
+            <span>•</span>
+            <span>Sarah Chen</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small Read 1 -->
+      <div class="small-read">
+        <div class="small-read-img">
+          <img src="https://images.unsplash.com/photo-1552664737-cf403ff57326?q=80&w=688&auto=format&fit=crop" alt="Data Pipeline">
+        </div>
+        <div class="small-read-content">
+          <span class="tag">TECHNICAL</span>
+          <h4>Building Real-Time Data Pipelines at Scale</h4>
+          <p>From Kafka to Flink: The exact stack we use to process 10M events/second with 99.99% uptime.</p>
+        </div>
+      </div>
+
+      <!-- Small Read 2 -->
+      <div class="small-read">
+        <div class="small-read-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c2f3?q=80&w=1415&auto=format&fit=crop" alt="Team">
+        </div>
+        <div class="small-read-content">
+          <span class="tag">CULTURE</span>
+          <h4>The Hidden Cost of "Move Fast and Break Things"</h4>
+          <p>Speed without systems = technical debt. How we reduced deployment failures by 87%.</p>
+        </div>
+      </div>
+
+      <!-- Small Read 3 -->
+      <div class="small-read">
+        <div class="small-read-img">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1470&auto=format&fit=crop" alt="Security">
+        </div>
+        <div class="small-read-content">
+          <span class="tag">SECURITY</span>
+          <h4>Zero Trust Architecture for AI Systems</h4>
+          <p>Why traditional perimeter security fails with ML models and how to fix it.</p>
+        </div>
+      </div>
+
+      <!-- Small Read 4 -->
+      <div class="small-read">
+        <div class="small-read-img">
+          <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?q=80&w=1470&auto=format&fit=crop" alt="Growth">
+        </div>
+        <div class="small-read-content">
+          <span class="tag">GROWTH</span>
+          <h4>From $0 to $1M ARR in 9 Months</h4>
+          <p>The playbook: AI product positioning, pricing, and go-to-market that actually converts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <h2>Ready to Amplify Your Intelligence?</h2>
+    <p>Join 500+ teams already using JNAANTRA to make smarter, faster decisions.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Start Free Trial</a>
+      <a href="#" class="btn-secondary">Schedule Demo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Guides</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 JNAANTRA. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- SCROLL INDICATOR SCRIPT -->
+  <script>
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (scrollTop / height) * 100;
+      scrollIndicator.style.transform = `scaleX(${scrolled / 100})`;
+      scrollIndicator.classList.toggle('active', scrolled > 0);
+      navbar.classList.toggle('scrolled', scrollTop > 50);
+    });
+  </script>
+</body>
+</html>
